@@ -1,7 +1,26 @@
 {
-  "name": "vue2-component",
+  "name": "@kydev/vue2-component",
   "version": "0.1.0",
-  "private": true,
+  "description": "基于Vue2的组件模板",
+  "main": "src/index.js",
+  "directories": {
+    "example": "examples",
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/limingxinleo/vue2-component.git"
+  },
+  "keywords": [
+    "Vue2",
+    "Component"
+  ],
+  "author": "李铭昕 <l@hyperf.io>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/limingxinleo/vue2-component/issues"
+  },
+  "homepage": "https://github.com/limingxinleo/vue2-component#readme",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
