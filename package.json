@@ -1,6 +1,6 @@
 {
   "name": "@kydev/vue2-component",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "基于Vue2的组件模板",
   "main": "dist/vue2-component.umd.min.js",
   "directories": {
