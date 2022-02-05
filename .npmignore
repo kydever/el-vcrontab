@@ -1,0 +1,16 @@
+# 忽略目录
+examples/
+node_modules/
+# 忽略指定文件
+*.map
+.browserslistrc
+.editorconfig
+.eslintrc.js
+babel.config.js
+package-lock.json
+tsconfig.json
+yarn.lock
+vue.config.js
+# 编辑器缓存文件
+.idea
+.vscode
