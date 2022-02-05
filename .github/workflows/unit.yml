@@ -1,0 +1,19 @@
+name: Unit Tests for Element Vue Crontab
+on:
+  push:
+  pull_request:
+
+jobs:
+  unit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 17.x
+          registry-url: https://registry.npmjs.org/
+      - name: Run Test Cases
+        run: |
+          yarn
+          yarn run lint --dry-run
+          yarn run test:unit
