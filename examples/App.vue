@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import HelloWorld from "@/HelloWorld";
+import { HelloWorld } from "@/index";
 
 export default {
   name: "App",

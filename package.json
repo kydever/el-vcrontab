@@ -1,8 +1,8 @@
 {
   "name": "@kydev/vue2-component",
-  "version": "0.1.2",
+  "version": "0.1.5",
   "description": "基于Vue2的组件模板",
-  "main": "dist/vue2-component.umd.min.js",
+  "main": "dist/index.umd.min.js",
   "directories": {
     "example": "examples",
     "test": "tests"
@@ -26,7 +26,7 @@
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
-    "lib": "vue-cli-service build --target lib --name vue2-component ./src/index.js"
+    "lib": "vue-cli-service build --target lib --name index ./src/index.js"
   },
   "dependencies": {
     "core-js": "^3.6.5",
