@@ -1,6 +1,6 @@
 {
   "name": "@kydev/el-vcrontab",
-  "version": "0.1.2",
+  "version": "0.0.0",
   "description": "基于Vue2和ElementUI的Crontab组件",
   "main": "dist/index.umd.min.js",
   "directories": {

@@ -35,6 +35,8 @@ jobs:
         env:
           NODE_OPTIONS: --openssl-legacy-provider
         run: |
+          echo ${{ github.ref }}
+          sed -i 's/0\.0\.0/0\.1\.3/' package.json
           yarn
           yarn run lib
       - name: Publish
