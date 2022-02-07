@@ -26,7 +26,6 @@ jobs:
     runs-on: ubuntu-latest
     env:
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      PACKAGE_VERSION: ${{ github.ref#*/v }}
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
@@ -36,7 +35,7 @@ jobs:
         env:
           NODE_OPTIONS: --openssl-legacy-provider
         run: |
-          node .github/change-version.js $PACKAGE_VERSION
+          node .github/change-version.js ${{ github.ref }}
           yarn
           yarn run lib
       - name: Publish
