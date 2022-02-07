@@ -26,7 +26,6 @@ jobs:
     runs-on: ubuntu-latest
     env:
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
@@ -40,4 +39,7 @@ jobs:
           yarn run lib
       - name: Publish
         run: |
+          npm config set //registry.npmjs.org/:_authToken=$NPM_TOKEN
+          npm config set scope "@kydev"
+          npm config list
           npm publish --access public
