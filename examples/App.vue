@@ -1,17 +1,17 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.jpeg" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <Crontab msg="Welcome to Your Vue.js App" />
   </div>
 </template>
 
 <script>
-import { HelloWorld } from "@/index";
+import { Crontab } from "@/index";
 
 export default {
   name: "App",
   components: {
-    HelloWorld,
+    Crontab,
   },
 };
 </script>
