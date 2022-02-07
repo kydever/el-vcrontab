@@ -35,8 +35,7 @@ jobs:
         env:
           NODE_OPTIONS: --openssl-legacy-provider
         run: |
-          echo ${{ github.ref#*/v }}
-          sed -i "s/0\.0\.0/${{ github.ref#*/v }}/" package.json
+          node .github/change-version.js ${{ github.ref#*/v }}
           yarn
           yarn run lib
       - name: Publish
