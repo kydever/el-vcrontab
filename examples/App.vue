@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <SmallCrontab :crontab="crontab" />
+    <SmallCrontab :crontab="crontab" @change="pickCrontab" />
   </div>
 </template>
 
@@ -11,11 +11,17 @@ export default {
   name: "App",
   data() {
     return {
-      crontab: "* * * 1 *",
+      crontab: "* * * * *",
     };
   },
   components: {
     SmallCrontab,
+  },
+  methods: {
+    pickCrontab: function (crontab) {
+      this.crontab = crontab;
+      console.log(this.crontab);
+    },
   },
 };
 </script>
