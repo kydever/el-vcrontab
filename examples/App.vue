@@ -1,17 +1,21 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.jpeg" />
-    <Crontab msg="Welcome to Your Vue.js App" />
+    <SmallCrontab :crontab="crontab" />
   </div>
 </template>
 
 <script>
-import { Crontab } from "@/index";
+import { SmallCrontab } from "@/index";
 
 export default {
   name: "App",
+  data() {
+    return {
+      crontab: "* * * 1 *",
+    };
+  },
   components: {
-    Crontab,
+    SmallCrontab,
   },
 };
 </script>

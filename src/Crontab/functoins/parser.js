@@ -9,4 +9,8 @@ const parse = function (crontab) {
   return crontabObject;
 };
 
-export { parse };
+const parseToString = function (obj) {
+  return `${obj.minute} ${obj.hour} ${obj.dayOfMonth} ${obj.month} ${obj.dayOfWeek}`;
+};
+
+export { parse, parseToString };
