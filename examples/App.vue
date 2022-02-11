@@ -1,11 +1,12 @@
 <template>
   <div id="app">
-    <SmallCrontab :crontab="crontab" />
+    <!-- <SmallCrontab :crontab="crontab" /> -->
+    <el-vcrontab v-model="crontab"></el-vcrontab>
   </div>
 </template>
 
 <script>
-import { SmallCrontab } from "@/index";
+import ElVcrontab from "../src/components/Crontab/Crontab.vue";
 
 export default {
   name: "App",
@@ -15,7 +16,7 @@ export default {
     };
   },
   components: {
-    SmallCrontab,
+    ElVcrontab,
   },
 };
 </script>

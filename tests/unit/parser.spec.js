@@ -1,4 +1,4 @@
-import { parse } from "@/Crontab/functoins/parser";
+import { parse } from "@/components/Crontab/functoins/parser";
 
 describe("parser", () => {
   it("parse crontab when passed", () => {

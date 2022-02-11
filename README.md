@@ -11,6 +11,12 @@ yarn add el-vcrontab
 ```
 
 ## How to use
+```
+import ElVcrontab from '@kydev/el-vcrontab'
+import '@kydev/el-vcrontab/lib/index.css'
+
+Vue.use(ElVcrontab)
+```
 
 ## Links
 

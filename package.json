@@ -1,12 +1,16 @@
 {
   "name": "@kydev/el-vcrontab",
-  "version": "0.0.0",
+  "version": "0.3.3",
   "description": "基于Vue2和ElementUI的Crontab组件",
-  "main": "dist/index.umd.min.js",
+  "main": "lib/index.umd.min.js",
   "directories": {
     "example": "examples",
     "test": "tests"
   },
+  "files": [
+    "lib",
+    "src"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kydever/el-vcrontab.git"
@@ -27,14 +31,17 @@
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
-    "lib": "vue-cli-service build --target lib --name index ./src/index.js"
+    "lib": "vue-cli-service build --target lib --dest lib --name index ./src/index.js"
   },
   "dependencies": {
     "core-js": "^3.6.5",
+    "croner": "^4.1.91",
     "element-ui": "^2.15.6",
     "vue": "^2.6.11"
   },
   "devDependencies": {
+    "@babel/core": "^7.17.2",
+    "@babel/preset-env": "^7.16.11",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-plugin-unit-jest": "~4.5.0",
@@ -42,6 +49,7 @@
     "@vue/eslint-config-prettier": "^6.0.0",
     "@vue/test-utils": "^1.0.3",
     "babel-eslint": "^10.1.0",
+    "babel-jest": "^27.5.1",
     "eslint": "^6.7.2",
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-vue": "^6.2.2",
