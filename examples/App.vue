@@ -12,11 +12,17 @@ export default {
   name: "App",
   data() {
     return {
-      crontab: "* * * 1 *",
+      crontab: "* * * * *",
     };
   },
   components: {
     ElVcrontab,
+  },
+  methods: {
+    pickCrontab: function (crontab) {
+      this.crontab = crontab;
+      console.log(this.crontab);
+    },
   },
 };
 </script>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-select v-model="month" placeholder="请选择月份">
+    <el-select v-model="month" placeholder="请选择月份" @change="changeCrontab">
       <el-option
         v-for="item in months"
         :key="item.value"
@@ -9,7 +9,11 @@
       >
       </el-option>
     </el-select>
-    <el-select v-model="dayOfWeek" placeholder="请选择周几">
+    <el-select
+      v-model="dayOfWeek"
+      placeholder="请选择周几"
+      @change="changeCrontab"
+    >
       <el-option
         v-for="item in dayOfWeeks"
         :key="item.value"
@@ -18,7 +22,11 @@
       >
       </el-option>
     </el-select>
-    <el-select v-model="dayOfMonth" placeholder="请选择周几">
+    <el-select
+      v-model="dayOfMonth"
+      placeholder="请选择周几"
+      @change="changeCrontab"
+    >
       <el-option
         v-for="item in dayOfMonths"
         :key="item.value"
@@ -27,7 +35,7 @@
       >
       </el-option>
     </el-select>
-    <el-select v-model="hour" placeholder="请选择几点">
+    <el-select v-model="hour" placeholder="请选择几点" @change="changeCrontab">
       <el-option
         v-for="item in hours"
         :key="item.value"
@@ -36,7 +44,11 @@
       >
       </el-option>
     </el-select>
-    <el-select v-model="minute" placeholder="请选择几点">
+    <el-select
+      v-model="minute"
+      placeholder="请选择几点"
+      @change="changeCrontab"
+    >
       <el-option
         v-for="item in minutes"
         :key="item.value"
@@ -49,7 +61,7 @@
 </template>
 
 <script>
-import { parse } from "./functoins/parser";
+import { parse, parseToString } from "./functoins/parser";
 
 export default {
   name: "SmallCrontab",
@@ -105,7 +117,7 @@ export default {
     const months = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
     months.map((index) => {
       this.months.push({
-        value: index,
+        value: index.toString(),
         label: index + "月",
       });
     });
@@ -113,15 +125,15 @@ export default {
     const dayOfWeeks = [0, 1, 2, 3, 4, 5, 6];
     dayOfWeeks.map((index) => {
       this.dayOfWeeks.push({
-        value: index,
-        label: "周" + (index == 0 ? "日" : index),
+        value: index.toString(),
+        label: "周" + (index === 0 ? "日" : index),
       });
     });
 
     const dayOfMonths = Array.from(Array(31).keys());
     dayOfMonths.map((index) => {
       this.dayOfMonths.push({
-        value: index + 1,
+        value: (index + 1).toString(),
         label: index + 1 + "号",
       });
     });
@@ -129,7 +141,7 @@ export default {
     const hours = Array.from(Array(24).keys());
     hours.map((index) => {
       this.hours.push({
-        value: index,
+        value: index.toString(),
         label: index + "点",
       });
     });
@@ -137,17 +149,13 @@ export default {
     const minutes = Array.from(Array(60).keys());
     minutes.map((index) => {
       this.minutes.push({
-        value: index,
+        value: index.toString(),
         label: index + "分",
       });
     });
-
-    console.log(JSON.parse(this.months));
   },
   mounted() {
-    console.log("mounted");
     this.load();
-    console.log(this.dayOfMonth);
   },
   methods: {
     load: function () {
@@ -155,22 +163,21 @@ export default {
         return;
       }
 
-      // const that = this;
-      // setTimeout(function () {
-      //   that.formatOptions(that.crontab);
-      // }, 100);
+      this.formatOptions(this.crontab);
     },
     formatOptions: function (crontab) {
-      console.log(crontab);
-
       const obj = parse(crontab);
-      console.log(obj);
 
       this.month = obj.month;
       this.dayOfWeek = obj.dayOfWeek;
       this.dayOfMonth = obj.dayOfMonth;
       this.hour = obj.hour;
       this.minute = obj.minute;
+    },
+    changeCrontab: function () {
+      const crontab = parseToString(this);
+
+      this.$emit("change", crontab);
     },
   },
 };
