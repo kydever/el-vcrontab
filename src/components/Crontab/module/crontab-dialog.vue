@@ -145,6 +145,8 @@ export default {
     dialogVisible() {
       if (this.value) {
         this.crontabList = this.value.split(" ");
+      } else {
+        this.crontabList = ['*', '*', '*', '*', '*']
       }
     },
   },
