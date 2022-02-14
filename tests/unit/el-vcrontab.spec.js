@@ -53,3 +53,33 @@ describe("CrontabDialog $emit el-vcrontab value success", () => {
     expect(wrapper.vm.crontab).toBe("3 3 3 3 3");
   });
 });
+
+describe("CrontabDialog default prop show success", async () => {
+  // 现在挂载组件，你便得到了这个包裹器
+  const wrapper = mount(ElVcrontab, {
+    propsData: {
+      value: "",
+    },
+    localVue,
+  });
+
+  it("validate crontab-dialog empty prop", async () => {
+    await wrapper.find("button").trigger("click");
+
+    expect(wrapper.findComponent(CrontabDialog).vm.crontabList.join(" ")).toBe(
+      "* * * * *"
+    );
+  });
+
+  await wrapper.setProps({
+    value: '1 1 1 1 1'
+  })
+
+  it("validate crontab-dialog prop", async () => {
+    await wrapper.find("button").trigger("click");
+
+    expect(wrapper.findComponent(CrontabDialog).vm.crontabList.join(" ")).toBe(
+      "1 1 1 1 1"
+    );
+  });
+});

@@ -5,9 +5,11 @@
       class="crontab__input"
       :placeholder="placeholder"
       :size="size"
+      :readonly="readonly"
+      :disabled="disabled"
       clearable
     ></el-input>
-    <el-button :size="size" type="primary" @click="generateCron"
+    <el-button :size="size" type="primary" @click="generateCron" :disabled="disabled"
       >生成Cron</el-button
     >
 
@@ -44,6 +46,14 @@ export default {
       type: String,
       default: () => "请输入或生成Cron",
     },
+    readonly: {
+      type: Boolean,
+      default: () => false
+    },
+    disabled: {
+      type: Boolean,
+      default: () => false
+    }
   },
   data() {
     return {
